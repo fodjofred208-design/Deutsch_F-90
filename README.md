@@ -156,7 +156,10 @@ Sur téléphone, la barre latérale devient un menu mobile et une barre de navig
 - journée recommandée actuelle ;
 - dernier cours terminé ;
 - indicateur A1 approximatif ;
-- carte visuelle des 90 jours.
+- carte visuelle des 90 jours ;
+- progression détaillée de chaque journée, partie par partie ;
+- historique des validations et des tests ;
+- enregistrement local des parties Vocabulary, Grammar, Listening, Speaking, Pronunciation, Writing, Culture et Exercise.
 
 ### Streak
 
@@ -237,6 +240,22 @@ La workflow est conçue pour être réutilisée :
 
 L’application utilise des liens légitimes vers des ressources externes et n’intègre pas illégalement de contenu audio protégé. `SpeechSynthesis` est utilisé lorsqu’une voix allemande est disponible ; sinon un message de secours invite à utiliser les liens officiels ou la pratique manuelle.
 
+### Assistance vocale renforcée
+
+L’assistant vocal est disponible dans les leçons, les cartes de vocabulaire, les exemples de grammaire, la page Listening et la page Speaking :
+
+- lecture du vocabulaire allemand avec article et pluriel ;
+- lecture de phrases modèles ;
+- bouton **Hear lesson** pour entendre le script allemand d’une journée ;
+- pause, reprise, arrêt et actualisation des voix disponibles ;
+- choix de la voix installée par le navigateur ;
+- choix de la langue allemand/français ;
+- vitesse lente, confortable ou normale ;
+- détection explicite d’une voix allemande ;
+- fallback manuel si SpeechSynthesis n’est pas disponible.
+
+La voix ne remplace pas les ressources audio officielles : elle sert à répéter plus souvent et à rendre chaque bloc plus actif.
+
 ### Speaking
 
 Les scénarios comprennent :
@@ -254,6 +273,10 @@ Les scénarios comprennent :
 Le microphone utilise `MediaRecorder` uniquement si le navigateur le supporte. Il reste optionnel et affiche :
 
 > Browser microphone not supported — use the exercise manually.
+
+### Motivation quotidienne
+
+Chaque jour affiche un **Spruch des Tages** : un proverbe ou une phrase motivante en allemand, sa traduction, une action concrète et un bouton de lecture vocale. La motivation reste liée au travail réel : répéter, écrire, demander une clarification ou valider un petit bloc.
 
 ### Tests
 
@@ -390,6 +413,8 @@ deutsch90_scores
 deutsch90_streak
 deutsch90_current_day
 deutsch90_settings
+deutsch90_sections
+deutsch90_completion_log
 ```
 
 Les données JSON corrompues sont ignorées avec des valeurs de secours afin d’éviter un crash au chargement.
@@ -440,6 +465,11 @@ Le fichier a été vérifié après les dernières modifications :
 - responsive CSS prévu pour mobile, tablette et desktop ;
 - dark mode deep green et White theme ;
 - footer visible avec `Made By Fodjo Fred` ;
+- icône graphique intégrée dans le sidebar, l’accueil et le favicon ;
+- checklist de 8 parties sauvegardée pour chaque jour ;
+- journal local des complétions et des tests ;
+- assistant vocal contrôlable avec fallback sans voix allemande ;
+- proverbes motivants avec action concrète et lecture vocale ;
 - aucun bouton principal laissé sans action associée.
 
 ---
