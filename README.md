@@ -335,6 +335,15 @@ La période nazie et la Shoah sont traitées de manière historique, factuelle, 
 
 ---
 
+## 🖼️ Icône de l’application
+
+L’illustration `Deutsch90_Icon.png` est utilisée comme identité visuelle de Deutsch 90 :
+
+- logo de la barre latérale ;
+- icône de l’écran d’accueil de bienvenue ;
+- favicon du document HTML ;
+- version optimisée intégrée directement dans `Deutsch90_A1.html` pour que l’icône fonctionne même si le fichier HTML est téléchargé seul.
+
 ## 🎨 Thèmes visuels
 
 Deux thèmes sont disponibles dans **Settings** :
