@@ -1,8 +1,8 @@
-# 🇩🇪 DEUTSCH 90
+# 🇩🇪 DEUTSCH-F 90
 
 ## De zéro → A1 solide en 90 jours
 
-**Deutsch 90** est une application web autonome d’apprentissage de l’allemand conçue pour accompagner un débutant absolu pendant **90 jours**, à raison de **2 heures par jour**, soit environ **180 heures**.
+**DEUTSCH-F 90** est une application web autonome d’apprentissage de l’allemand conçue pour accompagner un débutant absolu pendant **90 jours**, à raison de **2 heures par jour**, soit environ **180 heures**.
 
 L’application est contenue dans un seul fichier HTML :
 
@@ -11,6 +11,8 @@ Deutsch90_A1.html
 ```
 
 Elle ne nécessite ni compte, ni installation, ni backend, ni serveur local pour ses fonctions essentielles.
+
+Au démarrage, une page **DEUTSCH-F 90** affiche une animation locale de diffraction sonore autour du logo, une barre de progression et un pop-up interactif qui explique le champ d’ondes. Le bouton permet d’entrer immédiatement dans l’application et l’animation respecte la préférence de mouvement réduit.
 
 ---
 

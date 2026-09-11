@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Deutsch 90 — un parcours interactif de zéro à un niveau A1 solide en 90 jours.">
-<title>🇩🇪 Deutsch 90 · A1 en 90 jours</title>
+<meta name="description" content="DEUTSCH-F 90 — un parcours interactif de zéro à un niveau A1 solide en 90 jours.">
+<title>🇩🇪 DEUTSCH-F 90 · A1 en 90 jours</title>
 <link id="appFavicon" rel="icon" type="image/png" aria-label="Deutsch 90 icon">
 <style>
 :root{
@@ -44,6 +44,41 @@ html[data-theme="light"] .sidebar{background:rgba(255,255,255,.9)}
 .sidebar-footer{margin-top:auto;color:var(--muted);font-size:11px;padding:11px;border-top:1px solid var(--line-soft)}
 .main-area{margin-left:var(--sidebar);min-height:100vh}
 .app-footer{text-align:center;padding:18px 30px 30px;color:var(--muted);font-size:12px;letter-spacing:.04em;border-top:1px solid var(--line-soft)}
+
+/* Opening loading experience: a local, accessible sound-field animation. */
+body.loading-active{overflow:hidden}
+.loading-screen{position:fixed;inset:0;z-index:200;display:grid;place-items:center;overflow:hidden;background:#040b09;color:#f4fff3;isolation:isolate;opacity:1;transition:opacity .65s ease,visibility .65s ease}
+.loading-screen.is-leaving{opacity:0;visibility:hidden;pointer-events:none}
+.loading-screen[hidden]{display:none}
+.loading-screen::before{content:"";position:absolute;inset:-20%;z-index:-3;background:radial-gradient(circle at 50% 45%,rgba(71,180,93,.16),transparent 25%),radial-gradient(circle at 50% 45%,#0b2118 0,#06120e 41%,#020706 78%)}
+.loading-screen::after{content:"";position:absolute;inset:0;z-index:-2;opacity:.34;background-image:linear-gradient(rgba(168,239,104,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(168,239,104,.04) 1px,transparent 1px);background-size:48px 48px;mask-image:radial-gradient(circle at center,#000,transparent 73%)}
+.loading-field{position:absolute;z-index:-1;width:min(94vmin,760px);height:min(94vmin,760px);left:50%;top:50%;transform:translate(-50%,-50%);border-radius:50%;pointer-events:none}
+.loading-field::before{content:"";position:absolute;inset:4%;border-radius:50%;background:repeating-radial-gradient(circle at center,transparent 0 25px,rgba(168,239,104,.055) 26px 27px,transparent 28px 53px);filter:blur(.2px);animation:loadingFieldPulse 5s ease-in-out infinite}
+.loading-source{position:absolute;left:50%;top:50%;width:4px;height:78px;border-radius:999px;background:linear-gradient(180deg,transparent,var(--accent),transparent);box-shadow:0 0 18px var(--accent),0 0 46px rgba(168,239,104,.55);transform:translate(-50%,-50%);animation:loadingSource 1.3s ease-in-out infinite}
+.wave-ring{position:absolute;left:50%;top:50%;width:var(--ring-size);height:var(--ring-size);border:1px solid rgba(168,239,104,.55);border-radius:50%;transform:translate(-50%,-50%) scale(.45);opacity:0;box-shadow:0 0 18px rgba(168,239,104,.08),inset 0 0 18px rgba(168,239,104,.04);animation:loadingWave 4.2s cubic-bezier(.2,.64,.42,1) infinite;animation-delay:var(--ring-delay)}
+.wave-ring::before,.wave-ring::after{content:"";position:absolute;inset:11%;border:1px solid rgba(138,215,255,.24);border-radius:50%;transform:rotate(32deg) scaleX(.58);clip-path:inset(0 48% 0 0);}
+.wave-ring::after{transform:rotate(212deg) scaleX(.58);clip-path:inset(0 0 0 48%)}
+.loading-screen.wave-awake .wave-ring{border-color:rgba(215,247,123,.8);box-shadow:0 0 24px rgba(168,239,104,.14),inset 0 0 20px rgba(168,239,104,.06)}
+.loading-panel{width:min(92vw,570px);padding:clamp(26px,6vw,56px) clamp(20px,6vw,56px) 25px;text-align:center;position:relative}
+.loading-kicker{margin:0 0 20px;color:var(--accent);font-size:11px;font-weight:800;letter-spacing:.23em;text-transform:uppercase}
+.loading-logo{margin:0;text-transform:uppercase;letter-spacing:-.08em;line-height:.83;text-shadow:0 0 24px rgba(168,239,104,.23)}
+.loading-logo span{display:block;font-size:clamp(35px,9vw,72px);font-weight:900;color:#f4fff3}
+.loading-logo strong{display:block;font-size:clamp(75px,18vw,142px);font-weight:950;color:var(--accent);letter-spacing:-.13em;margin-right:.12em}
+.loading-subtitle{margin:19px 0 25px;color:#b7d4bf;font-size:14px;letter-spacing:.05em}
+.loading-wave-trigger{margin:0 auto 13px;border:1px solid rgba(168,239,104,.32);background:rgba(168,239,104,.08);color:var(--accent-2);border-radius:999px;min-height:42px;padding:8px 15px;font-size:11px;font-weight:800;letter-spacing:.08em;transition:background var(--ease),border-color var(--ease),transform var(--ease),box-shadow var(--ease)}
+.loading-wave-trigger:hover,.loading-wave-trigger[aria-expanded="true"]{background:rgba(168,239,104,.16);border-color:var(--accent);box-shadow:0 0 22px rgba(168,239,104,.15);transform:translateY(-1px)}
+.loading-popup{max-width:390px;margin:0 auto 16px;padding:12px 14px;border:1px solid rgba(168,239,104,.25);border-radius:14px;background:rgba(8,27,19,.88);color:#cce5cf;font-size:12px;line-height:1.5;box-shadow:0 12px 35px rgba(0,0,0,.2);animation:loadingPopupIn .28s ease both}
+.loading-popup strong{display:block;color:var(--accent-2);margin-bottom:3px}
+.loading-status-row{display:flex;justify-content:space-between;gap:12px;margin:9px 0 7px;color:#b7d4bf;font-size:11px}
+.loading-progress{height:5px;border-radius:999px;background:rgba(168,239,104,.13);overflow:hidden}
+.loading-progress span{display:block;width:0;height:100%;border-radius:inherit;background:linear-gradient(90deg,#62bd70,var(--accent));box-shadow:0 0 16px rgba(168,239,104,.7);transition:width .35s ease}
+.loading-enter{width:100%;margin-top:22px;border:1px solid var(--accent);border-radius:13px;min-height:50px;background:var(--accent);color:#06150b;font-size:12px;font-weight:900;letter-spacing:.1em;box-shadow:0 8px 30px rgba(168,239,104,.18);transition:transform var(--ease),box-shadow var(--ease),filter var(--ease)}
+.loading-enter:hover{transform:translateY(-2px);filter:saturate(1.1);box-shadow:0 12px 34px rgba(168,239,104,.28)}
+.loading-hint{margin:13px 0 0;color:#71947b;font-size:10px}
+@keyframes loadingWave{0%{opacity:0;transform:translate(-50%,-50%) scale(.42)}12%{opacity:.95}74%{opacity:.33}100%{opacity:0;transform:translate(-50%,-50%) scale(1.08)}}
+@keyframes loadingFieldPulse{0%,100%{transform:scale(.96);opacity:.42}50%{transform:scale(1.04);opacity:.8}}
+@keyframes loadingSource{0%,100%{opacity:.5;transform:translate(-50%,-50%) scaleY(.78)}50%{opacity:1;transform:translate(-50%,-50%) scaleY(1.12)}}
+@keyframes loadingPopupIn{from{opacity:0;transform:translateY(-5px) scale(.98)}to{opacity:1;transform:none}}
 .topbar{height:76px;padding:15px 30px;display:flex;align-items:center;gap:18px;border-bottom:1px solid var(--line-soft);position:sticky;top:0;z-index:20;background:rgba(7,17,14,.78);backdrop-filter:blur(14px)}
 html[data-theme="light"] .topbar{background:rgba(255,255,255,.9)}
 .topbar h1{font-size:clamp(20px,2.3vw,30px);margin:0;letter-spacing:-.04em;white-space:nowrap}.eyebrow{display:block;color:var(--accent);font-size:10px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:1px}
@@ -86,14 +121,40 @@ html[data-theme="light"] .card{background:linear-gradient(145deg,#fff,#f4faf3)}
 @media (max-width:360px){.topbar-actions .icon-button:last-child{display:none}.region-grid{grid-template-columns:1fr}.brand{padding-left:3px}.schedule-item span{font-size:8px}}
 </style>
 </head>
-<body>
-<div id="app" class="app-shell">
+<body class="loading-active">
+<div id="loadingScreen" class="loading-screen" role="dialog" aria-modal="true" aria-labelledby="loadingTitle" aria-describedby="loadingStatus">
+  <div class="loading-field" aria-hidden="true">
+    <span class="loading-source"></span>
+    <span class="wave-ring" style="--ring-size:18%;--ring-delay:0s"></span>
+    <span class="wave-ring" style="--ring-size:31%;--ring-delay:.52s"></span>
+    <span class="wave-ring" style="--ring-size:44%;--ring-delay:1.04s"></span>
+    <span class="wave-ring" style="--ring-size:57%;--ring-delay:1.56s"></span>
+    <span class="wave-ring" style="--ring-size:70%;--ring-delay:2.08s"></span>
+    <span class="wave-ring" style="--ring-size:83%;--ring-delay:2.6s"></span>
+    <span class="wave-ring" style="--ring-size:96%;--ring-delay:3.12s"></span>
+  </div>
+  <section class="loading-panel">
+    <p class="loading-kicker">OFFLINE A1 JOURNEY · SOUND FIELD READY</p>
+    <h1 id="loadingTitle" class="loading-logo"><span>DEUTSCH-F</span><strong>90</strong></h1>
+    <p class="loading-subtitle">De zéro → A1 solide · 90 jours · 2 heures par jour</p>
+    <button id="loadingPopupToggle" class="loading-wave-trigger" type="button" aria-expanded="false" aria-controls="loadingPopup">◉ ACTIVATE THE INTERACTIVE WAVE</button>
+    <div id="loadingPopup" class="loading-popup" hidden>
+      <strong>Interactive sound pop-up</strong>
+      The rings model a local sound wave: tap the button to wake the field, then enter your German journey. No account, server or external audio is required.
+    </div>
+    <div class="loading-status-row"><span id="loadingStatus" aria-live="polite">Calibrating your German journey…</span><span id="loadingPercent">0%</span></div>
+    <div class="loading-progress" role="progressbar" aria-label="Chargement de Deutsch-F 90" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="loadingProgress"></span></div>
+    <button id="loadingContinue" class="loading-enter" type="button">ENTER DEUTSCH-F 90 <span aria-hidden="true">→</span></button>
+    <p class="loading-hint">Press Enter or tap the button · animation respects reduced motion</p>
+  </section>
+</div>
+<div id="app" class="app-shell" aria-hidden="true">
   <aside id="sidebar" class="sidebar" aria-label="Navigation principale"></aside>
   <div id="navOverlay" class="overlay" aria-hidden="true"></div>
   <div class="main-area">
     <header class="topbar">
       <button class="icon-button mobile-menu-button" data-action="toggle-menu" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
-      <div><span class="eyebrow">🇩🇪 Deutsch 90</span><h1 id="pageTitle">Tableau de bord</h1></div>
+      <div><span class="eyebrow">🇩🇪 DEUTSCH-F 90</span><h1 id="pageTitle">Tableau de bord</h1></div>
       <div class="search-wrap">
         <span class="search-icon" aria-hidden="true">⌕</span>
         <label class="sr-only" for="globalSearch">Rechercher dans Deutsch 90</label>
@@ -1200,7 +1261,7 @@ function navItems(){return [
  ['dashboard','⌂','Dashboard'],['today','📅',"Today's Lesson"],['program','🗓️','90-Day Program'],['vocabulary','🧠','Vocabulary'],['grammar','📖','Grammar'],['listening','🎧','Listening'],['speaking','🗣️','Speaking'],['pronunciation','🔊','Pronunciation'],['writing','✍️','Writing'],['culture','🇩🇪','Culture'],['germany','🗺️','Germany'],['history','📜','History'],['knowledge','🧠','General Knowledge'],['tests','📝','Tests'],['progress','📊','Progress'],['tools','🛠️','Tools'],['settings','⚙️','Settings']
 ]}
 function navGroups(){const items=navItems();return [['Parcours',items.slice(0,3)],['Compétences',items.slice(3,9)],['Deutschland & Wissen',items.slice(9,13)],['Ressources',items.slice(13)]]}
-function renderSidebar(){const root=$('#sidebar');if(!root)return;root.innerHTML=`<div class="brand"><div class="brand-mark"><img src="${APP_ICON}" alt="Deutsch 90 icon"></div><div><strong>DEUTSCH 90</strong><small>De zéro → A1 solide</small></div></div>${navGroups().map(([label,items])=>`<div class="nav-group"><div class="nav-label">${label}</div>${items.map(([p,i,text])=>navButton(p,i,text)).join('')}</div>`).join('')}<div class="sidebar-footer">${completedCount()}/90 jours · ${state.streak.current} 🔥<br><span>Fonctionne hors ligne · données locales</span><br><strong>Made By Fodjo Fred</strong></div>`}
+function renderSidebar(){const root=$('#sidebar');if(!root)return;root.innerHTML=`<div class="brand"><div class="brand-mark"><img src="${APP_ICON}" alt="Deutsch 90 icon"></div><div><strong>DEUTSCH-F 90</strong><small>De zéro → A1 solide</small></div></div>${navGroups().map(([label,items])=>`<div class="nav-group"><div class="nav-label">${label}</div>${items.map(([p,i,text])=>navButton(p,i,text)).join('')}</div>`).join('')}<div class="sidebar-footer">${completedCount()}/90 jours · ${state.streak.current} 🔥<br><span>Fonctionne hors ligne · données locales</span><br><strong>Made By Fodjo Fred</strong></div>`}
 function navButton(page,icon,label){return `<button class="nav-item ${state.page===page?'active':''}" data-action="navigate" data-page="${page}"><span class="nav-icon" aria-hidden="true">${icon}</span><span>${label}</span>${page==='program'?`<span class="nav-count">${completedCount()}/90</span>`:''}</button>`}
 function renderBottomNav(){const root=$('#bottomNav');if(!root)return;const quick=[['dashboard','⌂','Accueil'],['today','📅','Today'],['program','🗓️','Programme'],['vocabulary','🃏','Mots'],['progress','📈','Progrès']];root.innerHTML=quick.map(([p,i,label])=>`<button class="${state.page===p?'active':''}" data-action="navigate" data-page="${p}"><span aria-hidden="true">${i}</span>${label}</button>`).join('')}
 function pageTitle(){const found=navItems().find(item=>item[0]===state.page);return found?found[2]:'Dashboard'}
@@ -1427,8 +1488,26 @@ document.addEventListener('keydown',event=>{if(event.key==='Escape'){closeMenu()
 const favicon=$('#appFavicon');
 if(favicon)favicon.href=APP_ICON;
 if('speechSynthesis' in window&&window.speechSynthesis.addEventListener)window.speechSynthesis.addEventListener('voiceschanged',()=>{if(state.page==='listening'||state.page==='settings')renderPage()});
+function initLoadingExperience(){
+ const screen=document.getElementById('loadingScreen');if(!screen)return;
+ const app=document.getElementById('app');
+ const status=document.getElementById('loadingStatus'),percent=document.getElementById('loadingPercent'),bar=document.getElementById('loadingProgress'),progressBar=screen.querySelector('[role="progressbar"]'),enter=document.getElementById('loadingContinue'),toggle=document.getElementById('loadingPopupToggle'),popup=document.getElementById('loadingPopup');
+ const reduced=typeof window.matchMedia==='function'&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+ const messages=['Calibrating your German journey…','Tuning vocabulary, grammar and sound…','Opening 90 days of A1 practice…','Your offline learning lab is ready.'];
+ let value=0,step=0,closed=false,interval=null,finishTimer=null;
+ const update=(next,message)=>{value=Math.max(0,Math.min(100,next));if(bar)bar.style.width=`${value}%`;if(percent)percent.textContent=`${Math.round(value)}%`;if(progressBar)progressBar.setAttribute('aria-valuenow',String(Math.round(value)));if(status&&message)status.textContent=message};
+ const finish=()=>{if(closed)return;closed=true;clearInterval(interval);clearTimeout(finishTimer);update(100,'Welcome — let’s learn German.');if(enter)enter.disabled=true;if(app)app.setAttribute('aria-hidden','false');document.body.classList.remove('loading-active');screen.classList.add('is-leaving');window.setTimeout(()=>{screen.hidden=true;screen.setAttribute('aria-hidden','true');},reduced?20:700)};
+ if(toggle&&popup){toggle.addEventListener('click',()=>{const open=popup.hidden;popup.hidden=!open;toggle.setAttribute('aria-expanded',String(open));screen.classList.toggle('wave-awake',open);if(status)status.textContent=open?'Sound field activated — watch the diffraction rings.':'Sound field resting — activate it again anytime.'})}
+ if(enter)enter.addEventListener('click',finish);
+ screen.addEventListener('keydown',event=>{if(event.key==='Enter'&&!event.target.matches('button'))finish();if(event.key==='Escape')finish()});
+ screen.classList.add('wave-awake');
+ enter?.focus();
+ const tick=()=>{if(closed)return;step+=1;const next=reduced?100:Math.min(96,value+[18,21,19,16,12][step-1]||8);update(next,messages[Math.min(step,messages.length-1)]);if(next>=100)finish()};
+ if(reduced){update(100,messages[3]);finishTimer=window.setTimeout(finish,550)}else{interval=window.setInterval(tick,470);finishTimer=window.setTimeout(finish,2800)}
+}
 loadState();
 render();
+initLoadingExperience();
 </script>
 </body>
 </html>
