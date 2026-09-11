@@ -266,7 +266,7 @@ L’assistant vocal est disponible dans les leçons, les cartes de vocabulaire, 
 
 La voix ne remplace pas les ressources audio officielles : elle sert à répéter plus souvent et à rendre chaque bloc plus actif.
 
-Quand une voix est sélectionnée dans Settings ou Listening, un exemple allemand s’affiche et est lancé automatiquement. Le bouton **Hear this example** permet de le relancer. SpeechSynthesis utilise le moteur et les voix installées sur l’appareil : aucune requête réseau n’est faite pour le bouton local. Pour un fonctionnement allemand hors ligne fiable, installe une voix allemande dans les réglages du système ; sans voix installée, l’application affiche un message honnête et conserve le mode manuel.
+Quand une voix est sélectionnée dans Settings ou Listening, un exemple allemand s’affiche et est lancé automatiquement. Le bouton **Activate & hear this voice** réveille aussi le moteur TTS sur les téléphones qui exigent un premier geste utilisateur. **Check offline voices** distingue les voix locales des voix marquées en ligne. SpeechSynthesis utilise le moteur et les voix installées sur l’appareil : aucune requête réseau n’est faite par le bouton local. Pour un fonctionnement allemand hors ligne fiable, installe une voix allemande dans les réglages du système ; sans voix installée, l’application affiche un message honnête et conserve le mode manuel.
 
 ### Login local
 
