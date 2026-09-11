@@ -270,7 +270,7 @@ Quand une voix est sélectionnée dans Settings ou Listening, un exemple alleman
 
 ### Login local
 
-Après l’introduction de chargement, l’application affiche une page de connexion locale avant le tableau de bord. Les identifiants de démonstration sont `admin` et `FFF123`. Cette porte d’entrée n’est pas une sécurité serveur : le fichier HTML reste entièrement local et autonome. L’animation de diffraction sonore continue derrière la page de connexion au lieu de redémarrer.
+Après l’introduction de chargement, l’application affiche une page de connexion locale avant le tableau de bord. Les identifiants ne sont pas affichés dans l’interface. Cette porte d’entrée n’est pas une sécurité serveur : le fichier HTML reste entièrement local et autonome. L’animation de diffraction sonore continue derrière la page de connexion au lieu de redémarrer.
 
 ### Speaking
 
