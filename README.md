@@ -12,7 +12,7 @@ Deutsch90_A1.html
 
 Elle ne nécessite ni compte, ni installation, ni backend, ni serveur local pour ses fonctions essentielles.
 
-Au démarrage, une page **DEUTSCH-F 90** affiche une animation locale de diffraction sonore autour du logo, une barre de progression et un pop-up interactif qui explique le champ d’ondes. Le bouton permet d’entrer immédiatement dans l’application et l’animation respecte la préférence de mouvement réduit.
+Au démarrage, une page **DEUTSCH-F 90** affiche pendant au moins six secondes une animation locale de diffraction sonore autour du logo, une barre de progression et un pop-up interactif qui explique le champ d’ondes. Le bouton permet d’entrer immédiatement dans l’application et l’animation respecte la préférence de mouvement réduit. Les cartes et panneaux se soulèvent, brillent et affichent un mouvement de lumière continu au survol ou au focus clavier. Le bouton hamburger est visible sur ordinateur comme sur mobile : sur ordinateur il réduit ou rouvre la barre latérale, et sur mobile il ouvre le menu complet.
 
 ---
 
